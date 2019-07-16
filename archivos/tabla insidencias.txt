@@ -1,0 +1,32 @@
+create table historial_insidencias 
+(
+num int(8) auto_increment primary key,
+asunto varchar(50) not null,
+tipo_insidencia varchar(50) not null,
+descripcion varchar(50) not null,
+fecha datetime not null,
+imagen varchar(200)
+nombre_usuario varchar(50),foreign key(nombre_usuario) references
+usuarios(nombre_usuario)on update cascade,
+)engine = innodb;
+
+
+
+consulta a base de datos jade 
+
+SELECT fecha, COUNT(*) FROM `insidencias` WHERE nombre_usuario='admin'
+ GROUP BY fecha ORDER BY COUNT(*) ASC
+SET @numero=0;
+SELECT @numero:=@numero+1 AS `posicion`, `fecha` FROM `insidencias`
+
+
+UPDATE `opinion` SET `num` = '5' WHERE `opinion`.`num_opinion` = 26;
+
+create table entrega_libros 
+(
+numero int(6) auto_increment primary key,
+fecha_entrega date not null,
+cedula int(8),foreign key(cedula) references
+usuarios(cedula)on update cascade,
+cota int(6),foreign key(cota) references
+libros(cota))engine = innodb;
